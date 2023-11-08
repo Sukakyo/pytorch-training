@@ -9,3 +9,5 @@ def count_word(s,character):
     if s[i] == character:
       num = function.add(num,1)
   return num
+
+#うぇえええい
