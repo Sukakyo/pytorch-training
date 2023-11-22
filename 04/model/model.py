@@ -1,7 +1,7 @@
 from torch import nn
 
 class MyModel(nn.Module):
-  def __init__(self,in_channel: int,out_channel:int,kernel_size:int,padding:int=0, stride: int=1):
+  def __init__(self,in_channel: int=3,out_channel:int=256,kernel_size:int=5,padding:int=0, stride: int=8):
     super().__init__()
     self.in_channel = in_channel
     self.out_channel = out_channel
@@ -18,12 +18,12 @@ class MyModel(nn.Module):
     out2 = norm(out1)
     relu = nn.ReLU()
     out3 = relu(out2)
-    print(repr(out3.size()))
+    #print(repr(out3.size()))
     size = out3.size()
     #re_out3 = torch.reshape(out3,(size[0],size[1]*size[2]*size[3]))
     
     re_out3 = out3.view(size[0],size[1] * size[2] * size[3])
-    print(re_out3.size())
+    #print(re_out3.size())
     linear = nn.Linear(re_out3.size()[1],64)
     out4 = linear(re_out3)
 

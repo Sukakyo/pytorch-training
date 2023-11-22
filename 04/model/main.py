@@ -5,7 +5,10 @@ import model
 if __name__ == "__main__":
   _in = torch.ones((32,3,128,128))
 
-  mymodel = model.MyModel(in_channel=3,out_channel=256,kernel_size=5,stride=8)
+  mymodel = model.MyModel()
 
-  print(mymodel(_in).size())
+  #print("===== before =====")
+  print(repr(_in.size()))
+  #print("===== after =====")
+  print(repr(mymodel(_in).size()))
     
