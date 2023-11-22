@@ -14,4 +14,7 @@ if __name__ == "__main__":
   print(np.shape(data[data[:,:,0] >= 80])[0])
   #print(np.sum(data[np.sum(data,axis=2) > 135],axis=1))
   print(np.shape(data[np.sum(data,axis=2) > 135])[0])
-  print(np.cov(data.reshape()) / (np.std(data[:,:,0]) * np.std(data[:,:,1])))
+  print(np.reshape(data.transpose(2,0,1)[0],-1))
+  print((np.sum((np.reshape(data.transpose(2,0,1)[0],-1) - np.mean(np.reshape(data.transpose(2,0,1)[0],-1))) 
+        * (np.reshape(data.transpose(2,0,1)[1],-1) - np.mean(np.reshape(data.transpose(2,0,1)[1],-1)) ))) / 15
+        / (np.std(np.reshape(data.transpose(2,0,1)[0],-1)) * np.std(np.reshape(data.transpose(2,0,1)[1],-1))))
