@@ -1,7 +1,7 @@
 from torch import nn
 
 class MyModel(nn.Module):
-  def __init__(self,in_channel: int=3,out_channel:int=256,kernel_size:int=5,padding:int=0, stride: int=8):
+  def __init__(self ,in_channel:int=3 ,out_channel:int=256 ,kernel_size:int=5 ,padding:int=0 , stride: int=8):
     super().__init__()
     self.in_channel = in_channel
     self.out_channel = out_channel
